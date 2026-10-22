@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sahib – App design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap">
+<style>
+:root{--pg:#f4e8d0;--pt:#3a0b12;--pm:#7a5a52;--dsp:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;--bd:system-ui,-apple-system,"Segoe UI",sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--pg:#1d0509;--pt:#FFF6E3;--pm:#cfa79d}}
+:root[data-theme="dark"]{--pg:#1d0509;--pt:#FFF6E3;--pm:#cfa79d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--pg);color:var(--pt);font-family:var(--bd);padding:30px 0 24px}
+.hd{padding:0 24px 22px;max-width:640px}
+.hd h1{font:800 64px/.9 var(--dsp);letter-spacing:-.04em;margin:0 0 12px}
+.hd h1 i{display:inline-block;width:.34em;height:.34em;border-radius:50%;background:#F7941D;margin-left:.06em}
+.hd p{margin:0;font-size:14px;line-height:1.45;color:var(--pm);max-width:34ch}
+.row{display:flex;gap:26px;overflow-x:auto;padding:8px 24px 28px;scroll-snap-type:x mandatory}
+.s{flex:0 0 270px;scroll-snap-align:center}
+.cap{margin:14px 4px 0;font-size:12px;line-height:1.4;color:var(--pm)}.cap b{display:block;color:var(--pt);font:700 15px var(--dsp);margin-bottom:2px}
+.dev{border:9px solid #1c0509;border-radius:46px;background:#1c0509}
+.ph{height:540px;border-radius:37px;padding:14px 18px 0;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;background:var(--b);color:var(--t)}
+.c{--b:#FFF6E3;--t:#3a0b12;--m:#7a5a52;--l:#ecdcbd;--k:#fffdf7;--bt:#721621;--btt:#FFF6E3}
+.g{--b:#721621;--t:#FFF6E3;--m:#EBC3B8;--l:#8f3040;--k:#852431;--bt:#F7941D;--btt:#3a0b12}
+.o{--b:#F7941D;--t:#3a0b12;--m:#6b3a12;--l:rgba(58,11,18,.25);--k:#fbb04d;--bt:#3a0b12;--btt:#FFF6E3}
+.sb{display:flex;justify-content:space-between;font:600 10px var(--bd);padding:0 8px;position:relative;height:14px}
+.sb:after{content:"";position:absolute;left:50%;top:-5px;width:66px;height:19px;border-radius:10px;background:#1c0509;transform:translateX(-50%)}
+.top{display:flex;align-items:center;gap:10px;font:600 12px var(--bd)}
+.bk{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--l);display:grid;place-items:center;font-size:15px}
+h2{font:800 27px/1 var(--dsp);letter-spacing:-.03em;margin:0}
+p{margin:0;font-size:12px;line-height:1.45;color:var(--m)}
+.btn{margin-top:auto;margin-bottom:18px;background:var(--bt);color:var(--btt);border-radius:16px;text-align:center;padding:15px;font:700 13px var(--bd)}
+.link{text-align:center;font:600 12px var(--bd);text-decoration:underline;text-underline-offset:3px;margin:-6px 0 20px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chip{font:600 11px var(--bd);padding:7px 12px;border-radius:99px;border:1.5px solid var(--l)}.chip.on{background:var(--t);color:var(--b);border-color:var(--t)}
+.tabs{margin:auto -18px 0;padding:10px 10px 18px;display:flex;justify-content:space-around;font:600 11px var(--bd);color:var(--m);border-top:1.5px solid var(--l)}.tabs .a{color:var(--t)}.tabs .a:before{content:"";display:block;width:6px;height:6px;border-radius:50%;background:#F7941D;margin:0 auto 4px}.tabs div:not(.a):before{content:"";display:block;height:10px}
+.step{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1.5px solid var(--l)}
+.dot{width:24px;height:24px;border-radius:50%;border:2px solid var(--l);flex:none;display:grid;place-items:center;font-size:12px}
+.dot.d{background:var(--t);border-color:var(--t);color:var(--b)}.dot.n{border-color:#F7941D}
+.step b{display:block;font:700 13px var(--bd)}.step span{font-size:11px;color:var(--m)}
+.photo{border:2px dashed var(--l);border-radius:20px;height:90px;display:grid;place-items:center;font:600 12px var(--bd);color:var(--m)}
+.hero{background:#721621;color:#FFF6E3;border-radius:26px;padding:16px;position:relative;overflow:hidden}
+.hero .n{font:800 104px/.8 var(--dsp);letter-spacing:-.06em;color:#F7941D;margin:0 0 12px -4px}.hero .n small{font-size:38px;letter-spacing:0}
+.hero b{font:700 16px var(--dsp)}.hero span{display:block;font-size:11px;opacity:.7;margin-top:2px}
+.row2{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1.5px solid var(--l)}
+.av{width:36px;height:36px;border-radius:12px;background:var(--t);color:var(--b);display:grid;place-items:center;font:800 15px var(--dsp);flex:none}
+.row2 b{font:700 13px var(--bd);display:block}.row2 span{font-size:11px;color:var(--m)}.row2 em{margin-left:auto;font:800 20px var(--dsp);font-style:normal;letter-spacing:-.03em}
+.seg{display:flex;gap:4px;flex:1}.seg i{flex:1;height:4px;border-radius:2px;background:var(--l)}.seg i.on{background:#F7941D}
+.q{font:800 25px/1.05 var(--dsp);letter-spacing:-.03em;margin:4px 0 6px}
+.opt{display:flex;gap:12px;align-items:center;padding:14px;border-radius:18px;background:var(--k);font:600 13px/1.3 var(--bd);border:2px solid transparent}
+.opt b{width:26px;height:26px;border-radius:50%;background:var(--l);display:grid;place-items:center;font:700 12px var(--bd);flex:none}
+.opt.on{border-color:#F7941D}.opt.on b{background:#F7941D;color:#3a0b12}
+.cap2{background:#F7941D;color:#3a0b12;margin:-14px -18px 0;padding:14px 18px 20px;border-radius:0 0 34px 34px;display:flex;flex-direction:column;gap:6px}
+.cap2 .big{font:800 112px/.8 var(--dsp);letter-spacing:-.06em;margin:8px 0 2px -4px}.cap2 .big small{font-size:40px;letter-spacing:0}
+.cap2 .bk{border-color:rgba(23,27,30,.3)}.cap2 p{color:#5a2308}
+.bar{display:flex;align-items:center;gap:10px;font:600 12px var(--bd);margin:3px 0}.bar span{width:84px}.bar i{flex:1;height:8px;border-radius:4px;background:var(--l);position:relative;overflow:hidden}.bar i:after{content:"";position:absolute;inset:0 var(--r) 0 0;background:var(--t)}
+.warn{border-left:4px solid #F7941D;padding:2px 0 2px 12px;font-size:12px;line-height:1.4}.warn b{display:block;font:700 13px var(--bd)}
+.bub{max-width:80%;padding:11px 14px;border-radius:20px 20px 20px 6px;font-size:13px;line-height:1.35;background:var(--k);border:1.5px solid var(--l)}
+.bub.me{margin-left:auto;background:var(--t);color:var(--b);border:0;border-radius:20px 20px 6px 20px}
+.inp{margin:auto -4px 20px;border:1.5px solid var(--l);border-radius:99px;padding:6px 6px 6px 16px;display:flex;align-items:center;font-size:12px;color:var(--m)}.inp i{margin-left:auto;width:34px;height:34px;border-radius:50%;background:#F7941D;color:#3a0b12;display:grid;place-items:center;font-style:normal;font-weight:800}
+.room{height:132px;border-radius:24px;background:repeating-linear-gradient(135deg,#721621 0 14px,#F7941D 14px 28px);display:grid;place-items:end start;padding:12px;font:700 11px var(--bd)}.room span{background:#FFF6E3;color:#3a0b12;padding:5px 10px;border-radius:99px}
+.price{font:800 44px/.9 var(--dsp);letter-spacing:-.04em}.price small{display:block;font:500 12px var(--bd);letter-spacing:0;color:var(--m);margin-top:6px}
+.kv{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1.5px solid var(--l);font-size:12px}.kv b{font-weight:700}.kv span{color:var(--m)}
+.doc{background:var(--k);border-radius:20px;padding:4px 14px}
+.sec{padding:11px 0;border-bottom:1.5px solid var(--l)}.sec:last-child{border:0}.sec b{display:flex;justify-content:space-between;font:700 13px var(--bd)}.sec b u{font:600 11px var(--bd);color:var(--m)}.sec p{margin-top:3px}
+.sig{display:flex;gap:14px}.sig div{flex:1;border-bottom:2px solid var(--t);height:44px;font:italic 500 21px var(--bd);display:flex;align-items:flex-end;padding-bottom:3px}.sig div.w{border-color:var(--l);color:var(--m);font:500 11px var(--bd);font-style:normal}
+.two{display:flex;gap:8px;margin-top:auto;margin-bottom:18px}.two .btn{margin:0;flex:1.4;padding:15px 8px}.two .gh{flex:1;border:2px solid var(--l);border-radius:16px;text-align:center;padding:13px 8px;font:700 12px var(--bd)}
+.wm{font:800 20px var(--dsp);letter-spacing:-.04em}
+</style>
+</head>
+<body>
+<div class="hd"><h1>Sahib<i></i></h1><p>Roommate matching for Jubail Industrial College students, from sign-up to a signed agreement.</p></div>
+<div class="row">
+
+<div class="s"><div class="dev"><div class="ph g">
+<div class="sb"><span>9:41</span><span>5G</span></div>
+<div class="wm">Sahib</div>
+<h2 style="font-size:44px;margin-top:auto;line-height:.92">Find your roommate before move-in.</h2>
+<p style="font-size:13px">Answer a few questions and meet verified JIC students who live the way you do.</p>
+<div class="btn" style="margin-top:14px">Get started</div><div class="link">See a sample match</div>
+</div></div><div class="cap"><b>Welcome</b>Starts with a promise and one action.</div></div>
+
+<div class="s"><div class="dev"><div class="ph c">
+<div class="sb"><span>9:41</span><span>5G</span></div>
+<div class="top"><span class="bk">‹</span>Step 2 of 3</div>
+<h2>Confirm you study at JIC</h2>
+<div><div class="step"><span class="dot d">✓</span><div><b>Student ID</b><span>20241873</span></div></div>
+<div class="step"><span class="dot n"></span><div><b>ID card photo</b><span>Front side, clear and flat</span></div></div>
+<div class="step" style="border:0"><span class="dot"></span><div><b>Privacy terms</b><span>Read and accept</span></div></div></div>
+<div class="photo">Tap to take a photo</div>
+<div class="btn">Take photo</div>
+</div></div><div class="cap"><b>Verify identity</b>Only verified students appear in matches.</div></div>
+
+<div class="s"><div class="dev"><div class="ph c">
+<div class="sb"><span>9:41</span><span>5G</span></div>
+<h2>Your matches</h2><p>12 verified students looking in Block C</p>
+<div class="chips"><span class="chip on">All</span><span class="chip">Quiet</span><span class="chip">Early riser</span><span class="chip">Tidy</span></div>
+<div class="hero"><div class="n">92<small>%</small></div><b>Ahmed K.</b><span>Mechanical engineering, year 2</span></div>
+<div><div class="row2"><span class="av">F</span><div><b>Faisal M.</b><span>Information technology</span></div><em>85</em></div>
+<div class="row2" style="border:0"><span class="av">O</span><div><b>Omar S.</b><span>Electrical engineering</span></div><em>79</em></div></div>
+<div class="tabs"><div class="a">Matches</div><div>Chat</div><div>Housing</div><div>Profile</div></div>
+</div></div><div class="cap"><b>Find roommate</b>The best match leads, the score is the hero.</div></div>
+
+<div class="s"><div class="dev"><div class="ph g">
+<div class="sb"><span>9:41</span><span>5G</span></div>
+<div class="top"><span class="bk">‹</span><div class="seg"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<p>Question 4 of 10</p>
+<div class="q">Friends stop by on a weeknight. What do you do?</div>
+<div class="opt on"><b>A</b>Welcome them and join in</div>
+<div class="opt"><b>B</b>Say hi, then head to my room</div>
+<div class="opt"><b>C</b>Ask for a heads-up next time</div>
+<div class="btn">Next question</div>
+</div></div><div class="cap"><b>Compatibility test</b>One question per screen, big tap targets.</div></div>
+
+<div class="s"><div class="dev"><div class="ph c">
+<div class="sb"><span>9:41</span><span>5G</span></div>
+<div class="cap2"><div class="top"><span class="bk">‹</span>You and Ahmed</div><div class="big">92<small>%</small></div><p>Strong match. You agree on sleep, tidiness and budget.</p></div>
+<div><div class="bar"><span>Sleep</span><i style="--r:5%"></i></div><div class="bar"><span>Tidiness</span><i style="--r:12%"></i></div><div class="bar"><span>Noise</span><i style="--r:30%"></i></div><div class="bar"><span>Budget</span><i style="--r:8%"></i></div></div>
+<div class="warn"><b>Guests could clash</b>Ahmed prefers none on weeknights. Add a house rule.</div>
+<div class="btn">Send request</div>
+</div></div><div class="cap"><b>Match result</b>Shows why the score is high and where you may clash.</div></div>
+
+<div class="s"><div class="dev"><div class="ph c">
+<div class="sb"><span>9:41</span><span>5G</span></div>
+<div class="top"><span class="bk">‹</span><span class="av" style="width:30px;height:30px;font-size:13px;border-radius:10px">A</span><div style="line-height:1.2">Ahmed K.<br><span style="font-weight:500;font-size:11px;color:var(--m)">Verified student</span></div></div>
+<div class="chips" style="margin-top:6px"><span class="chip">Early riser or night owl?</span><span class="chip">Favourite food?</span></div>
+<div class="bub">Hi Sara! Early riser or night owl?</div><div class="bub me">Early riser, always up for fajr.</div><div class="bub">Same. Let’s set house rules.</div>
+<div class="inp">Write a message<i>↑</i></div>
+</div></div><div class="cap"><b>Chat</b>Icebreakers start the conversation for you.</div></div>
+
+<div class="s"><div class="dev"><div class="ph c">
+<div class="sb"><span>9:41</span><span>5G</span></div>
+<div class="top"><span class="bk">‹</span>Available room</div>
+<div class="room"><span>Room photo</span></div>
+<h2 style="font-size:23px">Student housing, Block C</h2>
+<div class="price">SAR 1,000<small>for the 6-month term</small></div>
+<div><div class="kv"><span>Room</span><b>Twin, shared</b></div><div class="kv"><span>To campus</span><b>6 min walk</b></div><div class="kv" style="border:0"><span>Includes</span><b>Wi-Fi, A/C, laundry</b></div></div>
+<div class="btn">Reserve with Ahmed</div>
+</div></div><div class="cap"><b>Housing</b>University rooms with one clear price.</div></div>
+
+<div class="s"><div class="dev"><div class="ph c">
+<div class="sb"><span>9:41</span><span>5G</span></div>
+<div class="top"><span class="bk">‹</span>Agreement</div>
+<h2>Your roommate agreement</h2><p>Built from both your answers.</p>
+<div class="doc"><div class="sec"><b>Chores <u>Edit</u></b><p>Dishes every other day, trash shared.</p></div><div class="sec"><b>Guests <u>Edit</u></b><p>Tell each other first, none after 10 PM.</p></div><div class="sec"><b>Quiet hours <u>Edit</u></b><p>11 PM to 6 AM.</p></div></div>
+<div class="sig"><div>Sara</div><div class="w">Ahmed to sign</div></div>
+<div class="two"><span class="gh">Suggest change</span><div class="btn">Approve and sign</div></div>
+</div></div><div class="cap"><b>Roommate agreement</b>Plain rules both people sign.</div></div>
+
+</div>
+</body>
+</html>
